@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.responsive-p {
+  @apply px-[16px] sm:px-[20px] md:px-[32px] xl:px-[120px] py-20;
+}
+
+.footer-res-p {
+  @apply px-[16px] sm:px-[20px] md:px-[32px] xl:px-[120px] pt-20;
+}
+
+/* Remove background highlight on input focus */
+input:focus {
+  outline: none; /* Removes the default outline */
+  box-shadow: none; /* Removes any shadow effects */
+  background-color: inherit; /* Keeps the background color */
+}
+
+/* Remove highlight on hover */
+input:hover {
+  background-color: inherit; /* Keeps the original background color */
+  box-shadow: none; /* Removes any shadow effects on hover */
+}
+
+/* Additional fallback for Chrome, Safari, etc. */
+input::-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset; /* Prevents autofill styling */
+  box-shadow: 0 0 0px 1000px white inset;
+}
+
+.custom-gradient {
+  background: linear-gradient(
+    to bottom,
+    /* Direction: top to bottom */ #0575e6 0%,
+    /* Start color at 0% */ #02298a 85%,
+    /* Middle color at 85% */ #021b79 100% /* End color at 100% */
+  );
+}
+
+.bg-img {
+  background-image: url("./assets/images/skyscrapper.jpg");
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}

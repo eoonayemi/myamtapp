@@ -1,0 +1,11 @@
+export { default as Home } from "./Home";
+export { default as UserLogin } from "./Login";
+export { default as UserRegister } from "./Register";
+export { default as BuyData } from "./BuyData";
+export { default as BuyAirtime } from "./BuyAirtime";
+export { default as ElectricityBill } from "./ElectricityBill";
+export { default as CableSub } from "./CableSub";
+export { default as FundWallet } from "./FundWallet";
+export { default as NINVerification } from "./NINVerification";
+export { default as NINWithPhone } from "./NINWithPhone";
+export { default as BVNVerification } from "./BVNVerification";
