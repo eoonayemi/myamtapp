@@ -62,7 +62,7 @@ const Register = () => {
           <CustomButton
             text="Register"
             onClick={handleRegister}
-            styles="rounded-full text-sm h-[55px]"
+            styles="rounded-[1000rem] text-sm h-[55px]"
           />
           <div className="mx-auto text-sm">
             Already have an account?{" "}
@@ -101,7 +101,7 @@ const Register = () => {
             imgStyles="h-[20px]"
             textStyles="text-sm"
           /> */}
-          <div className="flex flex-col gap-5 items-center w-[60%]">
+          <div className="flex flex-col gap-5 w-[60%]">
             <div className="self-start">
               <h2 className="text-sm font-bold">Register</h2>
               <p className="text-[11px]">Welcome to MyAmtApp</p>
@@ -112,7 +112,7 @@ const Register = () => {
               value={form.username}
               onChange={(e) => setForm({ ...form, username: e.target.value })}
               type="text"
-              boxStyles="w-full py-5"
+              boxStyles="w-full py-5 h-[50px]"
               inputStyles="placeholder:text-[11px] text-[11px]"
               iconStyles="text-[10px]"
             />
@@ -122,7 +122,7 @@ const Register = () => {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               type="email"
-              boxStyles="w-full py-5"
+              boxStyles="w-full py-5 h-[50px]"
               inputStyles="placeholder:text-[11px] text-[11px]"
               iconStyles="text-[10px]"
             />
@@ -132,7 +132,7 @@ const Register = () => {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               type="password"
-              boxStyles="w-full py-5"
+              boxStyles="w-full py-5 h-[50px]"
               inputStyles="placeholder:text-[11px] text-[11px]"
               iconStyles="text-[11px]"
             />
@@ -144,14 +144,14 @@ const Register = () => {
                 setForm({ ...form, currentPassword: e.target.value })
               }
               type="password"
-              boxStyles="w-full py-5"
+              boxStyles="w-full py-5 h-[50px]"
               inputStyles="placeholder:text-[11px] text-[11px]"
               iconStyles="text-[11px]"
             />
             <CustomButton
               text="Register"
               onClick={handleRegister}
-              styles="rounded-full h-[39px] w-full p-5 text-[11px] flex items-center justify-center"
+              styles="rounded-[1000rem] h-[50px] w-full p-5 text-[11px] flex items-center justify-center"
             />
             <div className="mx-auto text-[10px] w-full text-center">
               Already have an account?{" "}

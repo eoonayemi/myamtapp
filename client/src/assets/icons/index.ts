@@ -39,3 +39,5 @@ export { RiRefundFill as Fund } from "react-icons/ri";
 export { TbCreditCardPay as CreditCard } from "react-icons/tb";
 export { TbBulbFilled as Bulb } from "react-icons/tb";
 export { FaLocationArrow as LocationArrow } from "react-icons/fa";
+export { HiArrowUpCircle as ArrowUpCircle } from "react-icons/hi2";
+export { PiArrowCircleRightFill as ArrowRightCircle } from "react-icons/pi";

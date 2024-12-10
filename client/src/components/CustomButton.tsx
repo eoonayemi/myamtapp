@@ -18,7 +18,7 @@ const CustomButton = ({
   return (
     <button
       disabled={disabled}
-      className={`${styles} bg-light_primary p-3 text-white`}
+      className={`${styles} bg-light_primary p-3 text-white rounded-lg`}
       onClick={onClick}
     >
       {text} {hasArrow && <ArrowRight className="inline-block ml-1" />}

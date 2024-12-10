@@ -4,6 +4,7 @@ import {
   Logo,
   SearchBox,
   SidebarLinkCard,
+  UserModal,
 } from "../components";
 import { sidebarLinks } from "../constants";
 import {
@@ -76,21 +77,9 @@ const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
             <div className="bg-white-shade001 p-2 rounded-full">
               <DottedNotify className="text-red-400 text-xl" />
             </div>
-            <div>
-              <img
-                src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/6b39933e-73ad-4b24-965c-17884b5a8e77/be9da804-63a0-4d5c-8a09-af29209133ce.png"
-                alt="profile-img"
-                className="rounded-full w-[35px] object-contain"
-              />
-            </div>
+            <UserModal />
           </div>
-          <div className="md:hidden">
-            <img
-              src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/6b39933e-73ad-4b24-965c-17884b5a8e77/be9da804-63a0-4d5c-8a09-af29209133ce.png"
-              alt="profile-img"
-              className="rounded-full w-[35px] object-contain"
-            />
-          </div>
+          <UserModal styles="md:hidden" />
         </div>
         <div className="bg-white p-5 md:hidden">
           <SearchBox />

@@ -39,12 +39,12 @@ const MobileNav = ({ navIsOpen, onSetNavIsOpen }: NavProps) => {
       <CustomButton
         text="Login"
         onClick={() => {}}
-        styles="mx-[16px] bg-secondary001 text-dark_primary sm:hidden"
+        styles="mx-[16px] bg-secondary001 text-dark_primary sm:hidden  rounded-lg"
       />
       <CustomButton
         text="Get Started"
         onClick={() => {}}
-        styles="mx-[16px] sm:hidden"
+        styles="mx-[16px] sm:hidden rounded-lg"
         hasArrow={true}
       />
     </div>

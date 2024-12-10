@@ -16,3 +16,4 @@ export { default as StatCard } from "./StatCard";
 export { default as ServiceCard } from "./ServiceCard";
 export { default as ActionCard } from "./ActionCard";
 export { default as SelectInput } from "./SelectInput";
+export { default as UserModal } from "./UserModal";

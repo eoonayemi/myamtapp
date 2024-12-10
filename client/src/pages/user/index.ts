@@ -9,3 +9,6 @@ export { default as FundWallet } from "./FundWallet";
 export { default as NINVerification } from "./NINVerification";
 export { default as NINWithPhone } from "./NINWithPhone";
 export { default as BVNVerification } from "./BVNVerification";
+export { default as Transactions } from "./Transactions";
+export { default as Notifications } from "./Notifications";
+export { default as Settings } from "./Settings";

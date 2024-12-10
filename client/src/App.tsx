@@ -11,6 +11,9 @@ import {
   LandingPage,
   NINVerification,
   NINWithPhone,
+  Notifications,
+  Settings,
+  Transactions,
   UserLogin,
   UserRegister,
 } from "./pages";
@@ -109,6 +112,33 @@ function App() {
           element={
             <DashboardLayout title="BVN Verification">
               <BVNVerification />
+            </DashboardLayout>
+          }
+        />
+
+        <Route
+          path="/transactions-history"
+          element={
+            <DashboardLayout title="Transactions">
+              <Transactions />
+            </DashboardLayout>
+          }
+        />
+
+        <Route
+          path="/notifications"
+          element={
+            <DashboardLayout title="Notifications">
+              <Notifications />
+            </DashboardLayout>
+          }
+        />
+
+        <Route
+          path="/account-settings"
+          element={
+            <DashboardLayout title="Account Settings">
+              <Settings />
             </DashboardLayout>
           }
         />

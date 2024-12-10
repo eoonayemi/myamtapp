@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { DesktopNav, FooterCol, Logo, MobileNav } from "../components";
-import { Copyright, Menu } from "../assets/icons";
+import { ArrowUpCircle, Copyright, Menu } from "../assets/icons";
 import { useState } from "react";
 import { footerLinks } from "../constants";
 

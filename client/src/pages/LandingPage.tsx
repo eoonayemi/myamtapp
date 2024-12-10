@@ -17,6 +17,7 @@ import {
 } from "../constants";
 import { shortenText } from "../utils";
 import {
+  ArrowUpCircle,
   Facebook,
   Instagram,
   Telegram,
@@ -78,7 +79,7 @@ const LandingPage = () => {
       </SectionBox>
 
       <ContentImgCard
-        id="about"
+        id="about-us"
         title="About Us"
         description={shortenText(
           "MyAmtApp is an all-in-one virtual top-up (VTU) platform designed to make digital transactions fast, secure, and convenient. With MyAmtApp, users can easily purchase airtime, subscribe to data plans, pay utility bills like electricity (NEPA), and manage cable subscriptions such as GOTV and DSTV. We go beyond basic services by offering seamless access to essential verifications, including NIN, BVN, CAC, and driver’s license verification, with printable slips for added convenience. Whether you need to top up for yourself or others, pay monthly bills, or handle critical verifications, MyAmtApp provides a secure, user-friendly solution tailored for your everyday needs."
@@ -97,7 +98,7 @@ const LandingPage = () => {
       <SectionBox
         title="Our Services"
         description="MyAmtApp streamlines airtime top-ups, data subscriptions, bill payments, and verifications (NIN, BVN, CAC, driver’s license) in one secure app. Simplify your transactions anytime, anywhere."
-        id="services"
+        id="our-services"
         cardStyles="gap-20"
       >
         <div className="w-full flex flex-col sm:flex-row flex-wrap gap-10 items-center justify-center">
@@ -112,7 +113,7 @@ const LandingPage = () => {
         </div>
       </SectionBox>
 
-      <SectionBox title="What Our Client Says" id="clients">
+      <SectionBox title="What Our Client Says" id="our-clients">
         <div className="w-full flex flex-col sm:flex-row sm:justify-center flex-wrap gap-10 mt-14">
           {clients.map((client, i) => (
             <ReviewCard
@@ -152,7 +153,7 @@ const LandingPage = () => {
       <SectionBox
         title="Try MyAmtApp Today"
         description="We offer instant recharge of airtime, databundle, cable TV subscriptions, Electricity bill payments and more."
-        id="faqs"
+        id="try-now"
         desStyles="w-[50%] text-gray-600"
         tdStyles="gap-3"
         cardStyles="text-sm"
@@ -185,6 +186,8 @@ const LandingPage = () => {
           </div>
         </div>
       </SectionBox>
+
+      {/* <ArrowUpCircle className="absolute text-white text-4xl right-[3rem]" /> */}
     </main>
   );
 };

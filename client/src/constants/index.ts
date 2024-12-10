@@ -3,10 +3,8 @@ import {
   CreditCard,
   Dollar,
   Fund,
-  Help,
   Home,
   Id,
-  Logout,
   Modem,
   Notification,
   Phone,
@@ -27,16 +25,24 @@ export const landingPageLinks = [
     path: "home",
   },
   {
-    name: "About",
-    path: "about",
+    name: "Features",
+    path: "features",
   },
   {
-    name: "Projects",
-    path: "projects",
+    name: "About Us",
+    path: "about-us",
   },
   {
-    name: "Contact",
-    path: "contact",
+    name: "Our Services",
+    path: "our-services",
+  },
+  {
+    name: "Our Clients",
+    path: "our-clients",
+  },
+  {
+    name: "FAQs",
+    path: "faqs",
   },
 ];
 
@@ -219,14 +225,12 @@ export const sidebarLinks = [
   },
   { name: "Fund Wallet", path: "/fund-wallet", Icon: Wallet },
   {
-    name: "Transaction",
-    path: "/transaction-history",
+    name: "Transactions",
+    path: "/transactions-history",
     Icon: Transaction,
   },
   { name: "Notifications", path: "/notifications", Icon: Notification },
   { name: "Settings", path: "/account-settings", Icon: Settings },
-  { name: "Help", path: "/help-support", Icon: Help },
-  { name: "Log Out", path: "/logout", Icon: Logout },
 ];
 
 export const userStatsData = [

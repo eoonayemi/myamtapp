@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 import { useLocation, useNavigate } from "react-router-dom";
-import { LocationArrow } from "../assets/icons";
+import { Verified } from "../assets/icons";
 import { useState } from "react";
 
 interface SidebarLinkCardProps {
@@ -86,7 +86,7 @@ const SidebarLinkCard = ({
               pathname == path && "text-light_primary"
             } cursor-pointer`}
           >
-            <LocationArrow className="text-sm" />
+            <Verified className="text-md" />
             <p>{name}</p>
           </div>
         ))}

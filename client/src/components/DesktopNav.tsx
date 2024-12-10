@@ -38,12 +38,12 @@ const DesktopNav = () => {
         <CustomButton
           text="Login"
           onClick={() => {}}
-          styles="bg-secondary001 text-dark_primary w-[160px] text-[12px]"
+          styles="bg-secondary001 text-dark_primary w-[160px] text-[12px] rounded-lg"
         />
         <CustomButton
           text="Get Started"
           onClick={() => {}}
-          styles="w-[160px] text-[12px]"
+          styles="w-[160px] text-[12px] rounded-lg"
           hasArrow={true}
         />
       </div>

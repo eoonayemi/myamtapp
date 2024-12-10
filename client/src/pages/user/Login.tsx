@@ -42,7 +42,7 @@ const Login = () => {
           <CustomButton
             text="Login"
             onClick={handleLogin}
-            styles="rounded-full text-sm h-[55px]"
+            styles="rounded-[1000rem] text-sm h-[55px]"
           />
           <div className="mx-auto text-sm flex flex-col items-center justify-center gap-2">
             <Link to="/forgot-password" className="text-light_primary">
@@ -84,7 +84,7 @@ const Login = () => {
             imgStyles="h-[20px]"
             textStyles="text-sm"
           /> */}
-          <div className="flex flex-col gap-5 items-center w-[60%]">
+          <div className="flex flex-col gap-5 r w-[60%]">
             <div className="self-start">
               <h2 className="text-sm font-bold">Login</h2>
               <p className="text-[11px]">Welcome Back</p>
@@ -95,7 +95,7 @@ const Login = () => {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               type="email"
-              boxStyles="h-[39px] w-full py-5"
+              boxStyles="h-[39px] w-full py-5 h-[50px]"
               inputStyles="placeholder:text-[11px] text-[11px]"
               iconStyles="text-[10px]"
             />
@@ -105,14 +105,14 @@ const Login = () => {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               type="password"
-              boxStyles=" h-[39px] w-full py-5"
+              boxStyles=" h-[39px] w-full py-5 h-[50px]"
               inputStyles="placeholder:text-[11px] text-[11px]"
               iconStyles="text-[11px]"
             />
             <CustomButton
               text="Login"
               onClick={handleLogin}
-              styles="rounded-full h-[39px] w-full py-5 text-[11px] flex items-center justify-center"
+              styles="rounded-[1000rem] h-[45px] w-full py-5 text-[11px] flex items-center justify-center"
             />
             <div className="mx-auto text-[10px] w-full text-center flex flex-col gap-1">
               <Link
