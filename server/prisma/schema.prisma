@@ -19,8 +19,7 @@ model User {
   username String @unique
   password String
   phoneNo String
-  userRole String
-  userType String
+  userRole String @default("user")
   emailVerified Boolean @default(false)
   walletBalance Float @default(0)
   totalFunds Float @default(0)

@@ -42,9 +42,9 @@ const register = async (req: Request, res: Response): Promise<void> => {
     }
 
     res.status(201).json({ message, user });
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Internal server error");
+  } catch (error: any) {
+    console.log(error.message);
+    res.status(500).json({ message: error.message });
   }
 };
 
