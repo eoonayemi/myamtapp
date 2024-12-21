@@ -2,9 +2,11 @@ import { useState } from "react";
 import { landingPageLinks } from "../constants";
 import { CustomButton } from ".";
 import { HashLink } from "react-router-hash-link";
+import { useNavigate } from "react-router-dom";
 
 const DesktopNav = () => {
   const [currentPath, setCurrentPath] = useState("home");
+  const navigate = useNavigate();
 
   return (
     <div className={`flex gap-16 overflow-hidden items-center`}>
@@ -37,12 +39,12 @@ const DesktopNav = () => {
       <div className="flex gap-3 max-sm:hidden">
         <CustomButton
           text="Login"
-          onClick={() => {}}
+          onClick={() => navigate("/login")}
           styles="bg-secondary001 text-dark_primary w-[160px] text-[12px] rounded-lg"
         />
         <CustomButton
           text="Get Started"
-          onClick={() => {}}
+          onClick={() => navigate("/register")}
           styles="w-[160px] text-[12px] rounded-lg"
           hasArrow={true}
         />

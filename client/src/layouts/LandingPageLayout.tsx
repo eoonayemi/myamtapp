@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { DesktopNav, FooterCol, Logo, MobileNav } from "../components";
-import { ArrowUpCircle, Copyright, Menu } from "../assets/icons";
+import { Copyright, Menu } from "../assets/icons";
 import { useState } from "react";
 import { footerLinks } from "../constants";
 
 const LandingPageLayout = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
+  
   return (
     <>
       <header className="bg-dark_primary fixed top-0 inset-x-0 z-50 h-16 flex justify-between items-center px-[16px] sm:px-[20px] md:px-[32px] xl:px-[120px] overflow-hidden">

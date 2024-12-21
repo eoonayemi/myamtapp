@@ -2,6 +2,7 @@ import { useState } from "react";
 import { landingPageLinks } from "../constants";
 import { HashLink } from "react-router-hash-link";
 import { CustomButton } from ".";
+import { useNavigate } from "react-router-dom";
 
 interface NavProps {
   navIsOpen: boolean;
@@ -10,6 +11,7 @@ interface NavProps {
 
 const MobileNav = ({ navIsOpen, onSetNavIsOpen }: NavProps) => {
   const [currentPath, setCurrentPath] = useState("home");
+  const navigate = useNavigate();
 
   return (
     <div
@@ -38,12 +40,12 @@ const MobileNav = ({ navIsOpen, onSetNavIsOpen }: NavProps) => {
       </nav>
       <CustomButton
         text="Login"
-        onClick={() => {}}
+        onClick={() => navigate("/login")}
         styles="mx-[16px] bg-secondary001 text-dark_primary sm:hidden  rounded-lg"
       />
       <CustomButton
         text="Get Started"
-        onClick={() => {}}
+        onClick={() => navigate("/register")}
         styles="mx-[16px] sm:hidden rounded-lg"
         hasArrow={true}
       />

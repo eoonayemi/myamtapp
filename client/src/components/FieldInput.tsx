@@ -42,7 +42,7 @@ const FieldInput = ({
 
           <input
             type={hidden && type == "password" ? "password" : ""}
-            className={`${inputStyles} bg-transparent outline-none placeholder:text-gray-300 placeholder:font-rubik placeholder:font-thin w-[82%]`}
+            className={`${inputStyles} bg-transparent outline-none placeholder:text-gray-300 placeholder:font-rubik placeholder:font-thin placeholder:text-md w-[82%]`}
             placeholder={placeholder}
             value={value}
             onChange={onChange}

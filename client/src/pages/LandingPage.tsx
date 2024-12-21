@@ -17,16 +17,17 @@ import {
 } from "../constants";
 import { shortenText } from "../utils";
 import {
-  ArrowUpCircle,
   Facebook,
   Instagram,
   Telegram,
   Twitter,
   Whatsapp,
 } from "../assets/icons";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
   const [activeReview, setActiveReview] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,7 +55,7 @@ const LandingPage = () => {
             text="Get Started"
             styles="w-[11rem]"
             hasArrow={true}
-            onClick={() => {}}
+            onClick={() => navigate("/register")}
           />
         </div>
         <div className="bg-secondary001 rounded-full p-10 overflow-hidden">
@@ -164,7 +165,7 @@ const LandingPage = () => {
             text="Get Started"
             styles="w-[10rem] text-sm"
             hasArrow
-            onClick={() => {}}
+            onClick={() => navigate("/register")}
           />
           <span className="text-gray-600">Email: myamtapp@info.com</span>
           <div className="flex gap-5">
