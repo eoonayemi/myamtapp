@@ -10,3 +10,17 @@ export const shortenText = (text: string) => {
   }
   return shortened + "...";
 };
+
+export const toJSON = (data: any) => {
+  return JSON.stringify(data, null, 2);
+};
+
+/**
+ * Adds commas to the appropriate positions in a number.
+ * @param num - The number to format.
+ * @returns The formatted number as a string.
+ */
+export const addCommas = (num: number): string => {
+  return num.toLocaleString('en-US');
+}
+

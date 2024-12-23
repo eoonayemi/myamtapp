@@ -41,3 +41,4 @@ export { TbBulbFilled as Bulb } from "react-icons/tb";
 export { FaLocationArrow as LocationArrow } from "react-icons/fa";
 export { HiArrowUpCircle as ArrowUpCircle } from "react-icons/hi2";
 export { PiArrowCircleRightFill as ArrowRightCircle } from "react-icons/pi";
+export { FaPhone as NoFillPhone } from "react-icons/fa6";

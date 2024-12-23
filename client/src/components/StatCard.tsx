@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 
 interface StatCardProps {
   cardStyles: string;
-  value: number;
+  value: string | number;
   label: string;
   Icon: IconType;
   iconColor: string;

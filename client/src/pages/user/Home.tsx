@@ -8,6 +8,7 @@ import {
   Wallet,
 } from "../../assets/icons";
 import { ActionCard, ServiceCard, StatCard } from "../../components";
+import { addCommas } from "../../utils";
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       <div className="flex flex-col md:flex-row gap-3 overflow-hidden">
         <StatCard
           cardStyles="flex-1 overflow-hidden md:pl-5"
-          value={1500}
+          value={addCommas(50000)}
           label="Wallet Balance"
           Icon={Wallet}
           iconColor="text-[#16DBCC]"
@@ -23,7 +24,7 @@ const Home = () => {
         />
         <StatCard
           cardStyles="flex-1 overflow-hidden  md:pl-5"
-          value={2500}
+          value={addCommas(2500)}
           label="Total Funding"
           Icon={Fund}
           iconColor="text-[#FF82AC]"
@@ -31,7 +32,7 @@ const Home = () => {
         />
         <StatCard
           cardStyles="flex-1 overflow-hidden  md:pl-5"
-          value={1000}
+          value={addCommas(1000)}
           label="Total Spent"
           Icon={CreditCard}
           iconColor="text-[#396AFF]"

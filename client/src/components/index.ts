@@ -17,3 +17,4 @@ export { default as ServiceCard } from "./ServiceCard";
 export { default as ActionCard } from "./ActionCard";
 export { default as SelectInput } from "./SelectInput";
 export { default as UserModal } from "./UserModal";
+export { default as Toast } from "./Toast";
