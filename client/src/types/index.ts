@@ -8,12 +8,14 @@ export type LoginFormData = z.infer<typeof loginFormSchema>;
 
 //Context types
 export type AppContextType = {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (val: boolean) => void;
   showToast: (message: string, type: "error" | "success") => void;
 };
 
 export type ToastType = {
-    message: string,
-    type: string
-    open: boolean
-    // setToast?: (toast: ToastType) => void
-}
+  message: string;
+  type: string;
+  open: boolean;
+  // setToast?: (toast: ToastType) => void
+};

@@ -25,7 +25,9 @@ const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
   const { pathname } = useLocation();
 
   return (
-    <main className="flex h-screen overflow-x-hidden overflow-y-auto bg-[#F5F7FA] gap-[2px]">
+    <main
+      className={`flex h-screen overflow-x-hidden overflow-y-auto bg-[#F5F7FA] gap-[2px]`}
+    >
       <section
         className={`pb-5 md:w-fit overflow-y-auto bg-white h-screen overflow-hidden fixed md:static transition-all duration-700 shadow-custom-shadow md:shadow-none z-20 ${
           isSideBarOPen ? "w-[300px]" : "w-0"

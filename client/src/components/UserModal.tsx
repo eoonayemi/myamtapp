@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Logout, Settings } from "../assets/icons";
 import { useEffect, useRef, useState } from "react";
+import { QueryClient, useMutation } from "@tanstack/react-query";
+import { logout as logoutUser } from "../api/auth";
+import { useAppContext } from "../contexts/AppContext";
 
 interface UserModalProps {
   styles?: string;
@@ -8,9 +11,24 @@ interface UserModalProps {
 
 const UserModal = ({ styles }: UserModalProps) => {
   const [showUserModal, setShowUserModal] = useState(false);
+  const { showToast, setIsLoggedIn } = useAppContext();
+  const queryClient = new QueryClient();
 
   const navigate = useNavigate();
   const modalRef = useRef<HTMLDivElement | null>(null);
+
+  const { mutate: logout } = useMutation({
+    mutationFn: logoutUser,
+    onSuccess: () => {
+      setIsLoggedIn(false);
+      queryClient.invalidateQueries({ queryKey: ["validate-token"] });
+      navigate("/login");
+      showToast("You're logged out", "success");
+    },
+    onError: (error: Error) => {
+      showToast(error.message, "error");
+    },
+  });
 
   useEffect(() => {
     const outsideClickHandler = (e: any) => {
@@ -58,13 +76,20 @@ const UserModal = ({ styles }: UserModalProps) => {
             <div
               className="flex gap-2 items-center py-3 px-5 hover:bg-white-shade001 cursor-pointer"
               onClick={() => {
+                setShowUserModal(false);
                 navigate("/account-settings");
               }}
             >
               <Settings className="text-tx-color text-lg" />
               <span>Account Settings</span>{" "}
             </div>
-            <div className="flex gap-2 items-center py-3 px-5 hover:bg-white-shade001 cursor-pointer">
+            <div
+              onClick={() => {
+                setShowUserModal(false);
+                logout();
+              }}
+              className="flex gap-2 items-center py-3 px-5 hover:bg-white-shade001 cursor-pointer"
+            >
               <Logout className="text-tx-color text-lg" />
               <span>Logout</span>{" "}
             </div>

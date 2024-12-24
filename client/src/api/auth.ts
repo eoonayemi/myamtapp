@@ -17,3 +17,7 @@ export const login = (formData: LoginFormData) =>
     },
     body: toJSON(formData),
   });
+
+export const validateToken = () => customFetch("auth/validate-token", "GET");
+
+export const logout = () => customFetch("auth/logout", "POST");

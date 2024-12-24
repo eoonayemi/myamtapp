@@ -27,7 +27,7 @@ const SelectInput = ({
         onChange={onChange}
         className="rounded-full w-full p-4 outline-none focus:border-light_primary border border-[#edf1f6]"
       >
-        <option disabled selected>
+        <option disabled defaultValue={-1} value={-1}>
           {defaultOpt}
         </option>
         {options.map((opt, i) => (

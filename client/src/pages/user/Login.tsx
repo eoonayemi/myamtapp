@@ -19,7 +19,7 @@ const Login = () => {
     resolver: zodResolver(loginFormSchema),
   });
   const navigate = useNavigate();
-  const { showToast } = useAppContext();
+  const { showToast, setIsLoggedIn } = useAppContext();
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -44,13 +44,13 @@ const Login = () => {
   const onSubmit = (data: LoginFormData) => {
     mutate(data, {
       onSuccess: () => {
+        setIsLoggedIn(true);
         navigate("/dashboard");
         showToast("You're logged in", "success");
-      
       },
       onError: (error: any) => {
+        console.log({ logInErr: error.message });
         showToast(error.message, "error");
-        
       },
     });
   };

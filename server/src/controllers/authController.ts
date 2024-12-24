@@ -83,4 +83,23 @@ const login = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export { login, register };
+const validateToken = async (req: Request, res: Response): Promise<void> => {
+  try {
+    res.status(200).json({ userId: req.userId, message: "Token is valid" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal server error");
+  }
+};
+
+const logout = async (req: Request, res: Response): Promise<void> => {
+  try {
+    res.clearCookie("jwt_user_token");
+    res.status(200).json({ message: "Logout successful" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal server error");
+  }
+};
+
+export { login, register, validateToken, logout };

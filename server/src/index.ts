@@ -21,6 +21,7 @@ app.use(
 
 //Routes
 app.use("/api/auth", authRouter);
+// app.use("/api/user", userRouter);
 
 //Server Test
 app.get("/", (req, res) => {
