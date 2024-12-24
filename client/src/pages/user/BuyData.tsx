@@ -1,23 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CustomButton, FieldInput, SelectInput } from "../../components";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 
 const BuyData = () => {
-  const [dataForm, setDataForm] = useState({
-    network: "",
-    dataType: "",
-    mobileNumber: "",
-    amount: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerFormSchema),
+  });
+  const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const formNames = [
+    "username",
+    "email",
+    "phoneNo",
+    "password",
+    "currentPassword",
+  ];
+
+  useEffect(() => {
+    const detectFormErrors = () => {
+      formNames.forEach((name) => {
+        if ((errors as any)[name]) {
+          console.log((errors as any)[name]);
+          return setErrorMessage((errors as any)[name].message);
+        }
+      });
+    };
+    detectFormErrors();
+  }, [errors]);
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: registerUser,
   });
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>,
-    fieldName: string
-  ) => {
-    setDataForm({
-      ...dataForm,
-      [fieldName]: event.target.value,
+  const onSubmit = (data: RegisterFormData) => {
+    mutate(data, {
+      onSuccess: () => {
+        navigate("/login");
+        console.log("Registration successful");
+        alert("Registration successful");
+      },
+      onError: (error: any) => {
+        alert(error.message || "Registration failed");
+      },
     });
   };
+
 
   return (
     <div className="flex flex-col bg-white p-6 rounded-xl gap-5 md:gap-20 md:flex-row-reverse">
@@ -40,32 +76,36 @@ const BuyData = () => {
           label="Network*"
           options={["MTN", "Airtel", "Glo", "9Mobile"]}
           defaultOpt="Choose Network"
-          value={dataForm.network}
-          onChange={(e) => handleChange(e, "network")}
+          name="network"
+          register={register}
         />
         <SelectInput
           label="Data Type*"
           hint="Select Plan Type SME or GIFTING or CORPORATE GIFTING"
           options={["SME", "SME2", "CORPORATE GIFTING", "GIFTING"]}
           defaultOpt="Choose Data Type"
-          value={dataForm.dataType}
-          onChange={(e) => handleChange(e, "dataType")}
+          name="dataType"
+          register={register}
+        />
+        <SelectInput
+          label="Plan*"
+          defaultOpt="Choose Data Plan"
+          name="dataPlan"
+          register={register}
         />
         <FieldInput
           placeholder="08035732862"
-          value={dataForm.mobileNumber}
-          onChange={(e) => handleChange(e, "mobileNumber")}
           type="number"
           boxStyles="bg-white border-[#edf1f6]"
           label="Mobile Number*"
+          {...register("phoneNo")}
         />
         <FieldInput
           placeholder="500"
-          value={dataForm.amount}
-          onChange={(e) => handleChange(e, "amount")}
           type="number"
           boxStyles="bg-white border-[#edf1f6]"
           label="Amount (N)*"
+          {...register("amount")}
         />
         <CustomButton text="Buy Now" onClick={() => {}} styles="rounded-full" />
       </div>

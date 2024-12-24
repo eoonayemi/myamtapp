@@ -273,3 +273,82 @@ export const ninSlips = [
     price: 300,
   },
 ];
+
+const dataTypes = [
+  ["SME", "DATA COUPONS", "SME2", "GIFTING", "CORPORATE GIFTING"],
+  ["SME", "GIFTING", "CORPORATE GIFTING"],
+  ["GIFTING", "CORPORATE GIFTING"],
+  ["SME", "GIFTING", "CORPORATE GIFTING"],
+];
+
+export const dataPlans = [
+  [
+    [
+      {
+        detail: "500.0MB SME = 129.0 30 days",
+        id: "1",
+        price: "N129.00"
+      },
+      {
+        detail: "1.0GB SME = 258.0 30 days",
+        id: "2",
+        price: "N258.00"
+      },
+      {
+        detail: "2.0GB SME = 516.0 30 days",
+        id: "3",
+        price: "N516.00"
+      },
+      {
+        detail: "3.0GB SME = 774.0 30 days",
+        id: "4",
+        price: "N774.00"
+      },
+      {
+        detail: "5.0GB SME = 1290.0 30 days",
+        id: "5",
+        price: "N1290.00"
+      },
+      {
+        detail: "10.0GB SME = 2580.0 30 days",
+        id: "6",
+        price: "N5000.00"
+      },
+      {
+        detail: "50.0GB SME = 12000.0 30 days",
+        id: "7",
+        price: "N12000.00"
+      },
+      {
+        detail: "75.0GB SME = 18000.0 30 days",
+        id: "8",
+        price: "N18000.00"
+      },
+      {
+        detail: "100.0GB SME = 24000.0 30 days",
+        id: "9",
+        price: "N24000.00"
+      },
+      {
+        detail: "120.0GB SME = 28800.0 30 days",
+        id: "10",
+        price: "N28800.00"
+      },
+      {
+        detail: "200.0GB SME = 48000.0 30 days",
+        id: "11",
+        price: "N48000.00"
+      },
+      {
+        detail: "500.0GB SME = 120000.0 30 days",
+        id: "12",
+        price: "N120000.00"
+      },
+      {
+        detail: "1000.0GB SME = 240000.0 30 days",
+        id: "13",
+        price: "N240000.00"
+      }
+    ]
+  ]
+]

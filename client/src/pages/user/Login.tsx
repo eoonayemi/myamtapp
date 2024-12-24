@@ -9,6 +9,7 @@ import { login } from "../../api/auth";
 import { useMutation } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppContext } from "../../contexts/AppContext";
+import { useUserStore } from "../../store";
 
 const Login = () => {
   const {
@@ -20,6 +21,7 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const { showToast, setIsLoggedIn } = useAppContext();
+  const { setUser } = useUserStore();
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -43,10 +45,12 @@ const Login = () => {
 
   const onSubmit = (data: LoginFormData) => {
     mutate(data, {
-      onSuccess: () => {
+      onSuccess: ({ user }) => {
         setIsLoggedIn(true);
         navigate("/dashboard");
         showToast("You're logged in", "success");
+        setUser(user);
+        console.log({ user });
       },
       onError: (error: any) => {
         console.log({ logInErr: error.message });

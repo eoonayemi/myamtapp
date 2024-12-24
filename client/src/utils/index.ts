@@ -21,6 +21,5 @@ export const toJSON = (data: any) => {
  * @returns The formatted number as a string.
  */
 export const addCommas = (num: number): string => {
-  return num.toLocaleString('en-US');
-}
-
+  return num.toLocaleString("en-US");
+};

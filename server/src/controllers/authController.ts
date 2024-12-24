@@ -63,7 +63,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
 
   try {
     const { email, password } = req.body;
-    const { message, error, token } = await loginUser({ email, password });
+    const { message, error, token, user } = await loginUser({ email, password });
 
     if (error) {
       res.status(400).json({ message });
@@ -76,7 +76,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
       maxAge: 3600000,
     });
 
-    res.status(200).json({ message });
+    res.status(200).json({ message, user });
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal server error");

@@ -26,9 +26,9 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const showToast = (message: string, type: string) =>
     setToast({ message, type, open: true });
 
-  console.log({
-    isLoggedIn,
-  });
+  // console.log({
+  //   isLoggedIn,
+  // });
 
   useEffect(() => {
     if (isError) {

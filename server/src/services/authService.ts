@@ -78,7 +78,14 @@ const loginUser = async ({
     }
   );
 
-  return { message: "Login successful", token, error: false };
+  const { password: _, ...userWithoutPassword } = user;
+
+  return {
+    message: "Login successful",
+    token,
+    error: false,
+    user: userWithoutPassword,
+  };
 };
 
 export { registerUser, loginUser };

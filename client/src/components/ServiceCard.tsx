@@ -1,4 +1,5 @@
 import { IconType } from "react-icons";
+import { useNavigate } from "react-router-dom";
 
 interface ServiceCardProps {
   name: string;
@@ -7,6 +8,7 @@ interface ServiceCardProps {
   cardStyles?: string;
   nameStyles?: string;
   imgStyles?: string;
+  link: string;
 }
 
 const ServiceCard = ({
@@ -16,10 +18,14 @@ const ServiceCard = ({
   nameStyles,
   imgStyles,
   Icon,
+  link,
 }: ServiceCardProps) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className={`${cardStyles} h-[22rem] flex flex-col text-center items-center justify-center gap-3 text-my_black rounded-2xl px-5 py-10`}
+      onClick={() => navigate(link)}
     >
       {image && (
         <img

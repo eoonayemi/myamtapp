@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { logout as logoutUser } from "../api/auth";
 import { useAppContext } from "../contexts/AppContext";
+import { useUserStore } from "../store";
 
 interface UserModalProps {
   styles?: string;
@@ -13,6 +14,7 @@ const UserModal = ({ styles }: UserModalProps) => {
   const [showUserModal, setShowUserModal] = useState(false);
   const { showToast, setIsLoggedIn } = useAppContext();
   const queryClient = new QueryClient();
+  const { user, setUser } = useUserStore();
 
   const navigate = useNavigate();
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -24,6 +26,7 @@ const UserModal = ({ styles }: UserModalProps) => {
       queryClient.invalidateQueries({ queryKey: ["validate-token"] });
       navigate("/login");
       showToast("You're logged out", "success");
+      setUser(null);
     },
     onError: (error: Error) => {
       showToast(error.message, "error");
@@ -64,8 +67,8 @@ const UserModal = ({ styles }: UserModalProps) => {
               />
             </div>
             <div className="flex flex-col justify-center">
-              <span>immanuel_in_dev</span>
-              <span className="text-tx-color">immanuel.in.dev@gmail.com</span>
+              <span>{user?.username}</span>
+              <span className="text-tx-color">{user?.email}</span>
             </div>
           </div>
 

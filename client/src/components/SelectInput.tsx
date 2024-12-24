@@ -1,3 +1,4 @@
+import { UseFormRegister } from "react-hook-form";
 import { ArrowDown } from "../assets/icons";
 
 interface SelectInputProps {
@@ -5,29 +6,27 @@ interface SelectInputProps {
   options: string[];
   defaultOpt: string;
   hint?: string;
-  value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  name: string;
+  register: UseFormRegister<any>;
 }
 
 const SelectInput = ({
   label,
   options,
   hint,
-  value,
-  onChange,
   defaultOpt,
+  name,
+  register,
 }: SelectInputProps) => {
   return (
     <div className="flex flex-col gap-1 relative">
       <label className="font-semibold">{label}</label>
       <select
-        name=""
-        id=""
-        value={value}
-        onChange={onChange}
+        id={name}
         className="rounded-full w-full p-4 outline-none focus:border-light_primary border border-[#edf1f6]"
+        {...register(name)}
       >
-        <option disabled defaultValue={-1} value={-1}>
+        <option disabled value="">
           {defaultOpt}
         </option>
         {options.map((opt, i) => (

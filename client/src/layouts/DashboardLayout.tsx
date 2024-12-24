@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   DashboardContentContainer,
   Logo,
@@ -23,6 +23,7 @@ interface DashboardLayoutProps {
 const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
   const [isSideBarOPen, setIsSideBarOPen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <main
@@ -73,10 +74,16 @@ const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
           </div>
           <div className="hidden md:flex items-center gap-5 ">
             <SearchBox />
-            <div className="bg-white-shade001 p-2 rounded-full">
+            <div
+              className="bg-white-shade001 p-2 rounded-full"
+              onClick={() => navigate("/account-settings")}
+            >
               <SettingsOutline className="text-[#577aa0] text-xl" />
             </div>
-            <div className="bg-white-shade001 p-2 rounded-full">
+            <div
+              className="bg-white-shade001 p-2 rounded-full"
+              onClick={() => navigate("/notifications")}
+            >
               <DottedNotify className="text-red-400 text-xl" />
             </div>
             <UserModal />
