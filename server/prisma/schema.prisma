@@ -31,6 +31,24 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model DataPlan {
+  id         Int      @id @default(autoincrement())
+  data_id    Int
+  network    String
+  plan_type  String
+  amount     Int
+  size       String
+  validity   String
+  data_provider   DataProvider @relation(fields: [dataProviderId], references: [id])
+  dataProviderId Int
+}
+
+model DataProvider {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  dataPlans DataPlan[]
+}
+
 // model Post {
 //   id        Int      @id @default(autoincrement())
 //   createdAt DateTime @default(now())
