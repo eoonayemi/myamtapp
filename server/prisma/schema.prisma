@@ -46,8 +46,25 @@ model DataPlan {
 model DataProvider {
   id        Int        @id @default(autoincrement())
   name      String     @unique
-  dataPlans DataPlan[]
+  dataPlans DataPlan[] 
 }
+
+model CablePlan {
+  id        Int      @id @default(autoincrement())
+  plan_id   Int
+  plan_name String
+  amount    Int
+  cable_provider  CableProvider @relation(fields: [cableProviderId], references: [id])
+  cableProviderId Int
+}
+
+model CableProvider {
+  id         Int         @id @default(autoincrement())
+  name       String      @unique
+  cablePlans CablePlan[]
+}
+
+
 
 // model Post {
 //   id        Int      @id @default(autoincrement())

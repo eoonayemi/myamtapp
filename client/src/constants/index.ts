@@ -4439,6 +4439,8 @@ export const dataplusDataPlans = [
   },
 ];
 
+
+
 export const anwardatacoCablePlans = [
   { plan_id: 18, plan_name: "GOtv Smallie", amount: 1575 },
   { plan_id: 34, plan_name: "GOtv Smallie - Monthly", amount: 1575 },
