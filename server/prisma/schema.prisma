@@ -14,72 +14,105 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  username String @unique
-  password String
-  phoneNo String
-  userRole String @default("user")
-  emailVerified Boolean @default(false)
-  walletBalance Float @default(0)
-  totalFunds Float @default(0)
-  totalSpent Float @default(0)
-  referrerId Int?
-  referrer User? @relation("ReferrerToUser", fields: [referrerId], references: [id])
-  referredUsers User[] @relation("ReferrerToUser")
-  joinedAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  username      String   @unique
+  password      String
+  phoneNumber       String
+  userRole      String   @default("user")
+  emailVerified Boolean  @default(false)
+  walletBalance Float    @default(0)
+  totalFunds    Float    @default(0)
+  totalSpent    Float    @default(0)
+  referrerId    Int?
+  referrer      User?    @relation("ReferrerToUser", fields: [referrerId], references: [id])
+  referredUsers User[]   @relation("ReferrerToUser")
+  joinedAt      DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  transactions Transaction[]
+}
+
+model Provider {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  dataPlans    DataPlan[]
+  cablePlans   CablePlan[]
+  transactions Transaction[]
 }
 
 model DataPlan {
-  id         Int      @id @default(autoincrement())
-  data_id    Int
-  network    String
-  plan_type  String
-  amount     Int
-  size       String
-  validity   String
-  data_provider   DataProvider @relation(fields: [dataProviderId], references: [id])
-  dataProviderId Int
-}
-
-model DataProvider {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique
-  dataPlans DataPlan[] 
+  id           Int           @id @default(autoincrement())
+  dataId       Int
+  network      String
+  planType     String
+  amount       Int
+  size         String
+  validity     String
+  providerId   Int
+  transactions Transaction[]
+  provider     Provider      @relation(fields: [providerId], references: [id])
 }
 
 model CablePlan {
-  id        Int      @id @default(autoincrement())
-  plan_id   Int
-  plan_name String
-  amount    Int
-  cable_provider  CableProvider @relation(fields: [cableProviderId], references: [id])
-  cableProviderId Int
-}
-
-model CableProvider {
-  id         Int         @id @default(autoincrement())
-  name       String      @unique
-  cablePlans CablePlan[]
+  id           Int           @id @default(autoincrement())
+  planId       Int
+  planName     String
+  amount       Int
+  providerId   Int
+  transactions Transaction[]
+  provider     Provider      @relation(fields: [providerId], references: [id])
 }
 
 
+model Transaction {
+  id                Int       @id @default(autoincrement())
+  userId            Int
+  amount            Float
+  type              String
+  status            String
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  providerId        Int
+  dataPlanId        Int?
+  cablePlanId       Int?
+  ninVerificationId Int?
+  bvnVerificationId Int?
+  mobileNumber      String?   // For data or airtime purchase
+  iucNumber         String?   // For cable plan subscription
+  meterNumber       String?   // For electricity bill payment
+  customerPhoneNumber String? // For various transactions
+  nin                 String?
+  bvn                 String?
 
-// model Post {
-//   id        Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-//   title     String   @db.VarChar(255)
-//   content   String?
-//   published Boolean  @default(false)
-//   author    User     @relation(fields: [authorId], references: [id])
-//   authorId  Int
-// }
+  // Relations
+  user              User      @relation(fields: [userId], references: [id])
+  provider          Provider  @relation(fields: [providerId], references: [id])
+  dataPlan          DataPlan? @relation(fields: [dataPlanId], references: [id])
+  cablePlan         CablePlan? @relation(fields: [cablePlanId], references: [id])
+  ninVerification   NINVerification? @relation(fields: [ninVerificationId], references: [id])
+  bvnVerification   BVNVerification? @relation(fields: [bvnVerificationId], references: [id])
+}
 
-// model Profile {
-//   id     Int     @id @default(autoincrement())
-//   bio    String?
-//   user   User    @relation(fields: [userId], references: [id])
-//   userId Int     @unique
-// }
+model NINVerification {
+  id           Int           @id @default(autoincrement())
+  slipLayout   String
+  verifyWith   String
+  price        Int
+  transactions Transaction[]
+}
+
+model BVNVerification {
+  id           Int           @id @default(autoincrement())
+  price        Int
+  detailsType  String
+  transactions Transaction[]
+}
+
+model Configuration {
+  id          Int      @id @default(autoincrement())
+  key         String   @unique
+  value       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

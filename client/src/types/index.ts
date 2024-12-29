@@ -1,10 +1,16 @@
 import { z } from "zod";
-import { loginFormSchema, registerFormSchema } from "../schemas";
+import {
+  buyDataFormSchema,
+  loginFormSchema,
+  registerFormSchema,
+} from "../schemas";
 
 //Form data types
 export type RegisterFormData = z.infer<typeof registerFormSchema>;
 
 export type LoginFormData = z.infer<typeof loginFormSchema>;
+
+export type BuyDataFormData = z.infer<typeof buyDataFormSchema>;
 
 //Context types
 export type AppContextType = {
@@ -20,6 +26,7 @@ export type ToastType = {
   // setToast?: (toast: ToastType) => void
 };
 
+//Fecthed Data Types
 export interface User {
   id: number;
   email: string;
@@ -36,4 +43,21 @@ export interface User {
   referredUsers: User[];
   joinedAt: Date;
   updatedAt: Date;
+}
+
+export interface DataPlan {
+  id: number;
+  dataId: number;
+  network: string;
+  planType: string;
+  amount: number;
+  size: string;
+  validity: string;
+  providerId: number;
+}
+
+export interface DataProvider {
+  id: number;
+  name: string;
+  dataPlans: DataPlan[];
 }

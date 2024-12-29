@@ -8,6 +8,7 @@ import { registerFormSchema } from "../../schemas";
 import { useEffect, useState } from "react";
 import { RegisterFormData } from "../../types";
 import { register as registerUser } from "../../api/auth";
+import { useAppContext } from "../../contexts/AppContext";
 
 const Register = () => {
   const {
@@ -18,6 +19,7 @@ const Register = () => {
     resolver: zodResolver(registerFormSchema),
   });
   const navigate = useNavigate();
+  const { showToast } = useAppContext();
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -49,11 +51,10 @@ const Register = () => {
     mutate(data, {
       onSuccess: () => {
         navigate("/login");
-        console.log("Registration successful");
-        alert("Registration successful");
+        showToast("Registration successful", "success");
       },
       onError: (error: any) => {
-        alert(error.message || "Registration failed");
+        showToast(error.message || "Registration failed", "error");
       },
     });
   };

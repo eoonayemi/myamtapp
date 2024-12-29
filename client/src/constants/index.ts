@@ -275,10 +275,44 @@ export const ninSlips = [
 ];
 
 export const dataTypes = [
-  ["SME", "DATA COUPONS", "SME2", "GIFTING", "CORPORATE GIFTING"],
-  ["SME", "GIFTING", "CORPORATE GIFTING"],
-  ["GIFTING", "CORPORATE GIFTING"],
-  ["SME", "GIFTING", "CORPORATE GIFTING"],
+  {
+    name: "anwardataco",
+    MTN: ["SME", "SME 2", "GIFTING", "CORPORATE GIFTING", "DATA COUPONS"],
+    GLO: ["GIFTING", "CORPORATE GIFTING"],
+    AIRTEL: ["CORPORATE GIFTING"],
+    "9MOBILE": ["GIFTING", "CORPORATE GIFTING"],
+  },
+  {
+    name: "alrahuzdata",
+    MTN: [
+      "SME",
+      "SME 2",
+      "GIFTING",
+      "CORPORATE GIFTING",
+      "DATA COUPONS",
+      "DATA SHARE",
+    ],
+    GLO: ["SME", "GIFTING", "CORPORATE GIFTING"],
+    AIRTEL: ["SME", "GIFTING", "CORPORATE GIFTING"],
+    "9MOBILE": ["SME", "GIFTING", "CORPORATE GIFTING"],
+  },
+  {
+    name: "dataplus",
+    MTN: ["SME", "SME 2", "GIFTING", "CORPORATE GIFTING", "AWOOF DATA"],
+    GLO: ["GIFTING", "CORPORATE GIFTING", "AWOOF DATA"],
+    AIRTEL: ["CORPORATE GIFTING", "AWOOF DATA"],
+    "9MOBILE": ["CORPORATE GIFTING"],
+  },
+];
+
+export const dataTypess = [
+  "SME",
+  "SME 2",
+  "GIFTING",
+  "CORPORATE GIFTING",
+  "DATA COUPONS",
+  "DATA SHARE",
+  "AWOOF DATA",
 ];
 
 export const dataPlans = {
@@ -4438,8 +4472,6 @@ export const dataplusDataPlans = [
     validity: "30 days",
   },
 ];
-
-
 
 export const anwardatacoCablePlans = [
   { plan_id: 18, plan_name: "GOtv Smallie", amount: 1575 },

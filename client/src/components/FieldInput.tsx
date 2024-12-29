@@ -10,7 +10,8 @@ interface FieldInputProps {
   boxStyles?: string;
   inputStyles?: string;
   iconStyles?: string;
-  // value?: string;
+  value?: string | number;
+  disabled?: boolean
   // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

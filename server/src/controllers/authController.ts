@@ -24,14 +24,14 @@ const register = async (req: Request, res: Response): Promise<void> => {
   }
 
   try {
-    const { email, username, password, phoneNo, referrerId, userRole } =
+    const { email, username, password, phoneNo: phoneNumber, referrerId, userRole } =
       req.body;
 
     const { message, user, error } = await registerUser({
       email,
       username,
       password,
-      phoneNo,
+      phoneNumber,
       referrerId,
       userRole: userRole ? userRole : "user",
     });

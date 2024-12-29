@@ -22,6 +22,8 @@ export const loginFormSchema = z.object({
 
 export const buyDataFormSchema = z.object({
   network: z.string().min(1, "Network is required"),
-  dataPlan: z.string().min(1, "Data plan is required"),
+  dataId: z.string().min(1, "Data plan is required"),
+  dataType: z.string().min(1, "Data type is required"),
+  amount: z.number().positive("Amount must be a positive number"),
   phoneNo: z.string().min(10, "Phone number must be at least 10 digits"),
 });

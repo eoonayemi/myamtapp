@@ -2,9 +2,16 @@ export interface registerUserProps {
   email: string;
   username: string;
   password: string;
-  phoneNo: string;
+  phoneNumber: string;
   referrerId?: number;
   userRole: string;
+}
+
+export interface buyDataPops {
+  userId: number;
+  network: string;
+  dataId: string;
+  phoneNo: string;
 }
 
 export interface User {
@@ -23,4 +30,8 @@ export interface User {
   referredUsers: User[];
   joinedAt: Date;
   updatedAt: Date;
+}
+
+export interface CustomError extends Error {
+  statusCode: number;
 }
