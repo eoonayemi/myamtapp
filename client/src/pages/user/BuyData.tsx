@@ -45,6 +45,8 @@ const BuyData = () => {
     queryFn: getDataPlans,
   });
 
+  // console.log("Data Plans:", fetchingPlans, data);
+
   const filteredDataPlans: DataPlan[] =
     data?.dataPlans?.filter(
       ({ network, planType }) =>

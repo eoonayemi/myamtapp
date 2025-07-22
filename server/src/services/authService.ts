@@ -1,4 +1,3 @@
-import { ca } from "./../../../client/src/constants/index";
 import { registerUserProps } from "../types";
 import { PrismaClient } from "@prisma/client";
 import { hashPassword, verifyPassword } from "../utils";

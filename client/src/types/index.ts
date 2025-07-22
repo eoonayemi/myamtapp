@@ -1,5 +1,6 @@
 import { z } from "zod";
 import {
+  airtimeFormSchema,
   buyDataFormSchema,
   loginFormSchema,
   registerFormSchema,
@@ -11,6 +12,8 @@ export type RegisterFormData = z.infer<typeof registerFormSchema>;
 export type LoginFormData = z.infer<typeof loginFormSchema>;
 
 export type BuyDataFormData = z.infer<typeof buyDataFormSchema>;
+
+export type AirtimeFormData = z.infer<typeof airtimeFormSchema>;
 
 //Context types
 export type AppContextType = {

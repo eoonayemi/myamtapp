@@ -1,8 +1,10 @@
 import { customFetch } from "../api";
+import CustomError from "../classes";
 import { networks, vtuAPIs } from "../constants";
 import { toJSON } from "../utils";
 import { buyDataPops } from "./../types/index";
 import { PrismaClient } from "@prisma/client";
+
 
 const prisma = new PrismaClient();
 
@@ -18,15 +20,19 @@ export const queryDataPlans = async (providerName: string) => {
     });
 
     if (!provider) {
+      console.log(`Provider ${providerName} not found`);
       throw new CustomError(`Provider ${providerName} not found`, 404);
     }
     return provider;
   } catch (error) {
-    throw new CustomError(
-      error instanceof Error ? error.message : String(error),
-      500
-    );
+  if (error instanceof CustomError) {
+    throw error; // preserve original status/message
   }
+  throw new CustomError(
+    error instanceof Error ? error.message : String(error),
+    500
+  );
+}
 };
 
 export const buyData = async ({

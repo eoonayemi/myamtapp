@@ -11,7 +11,7 @@ interface FieldInputProps {
   inputStyles?: string;
   iconStyles?: string;
   value?: string | number;
-  disabled?: boolean
+  disabled?: boolean;
   // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -50,6 +50,8 @@ const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
               placeholder={placeholder}
               ref={ref}
               {...props}
+              min={type === "number" ? 10 : undefined}
+              step={type === "number" ? 10 : undefined}
             />
           </div>
           {type === "password" && (

@@ -25,9 +25,10 @@ const SelectInput = ({
       <select
         id={name}
         className="rounded-full w-full p-4 outline-none focus:border-light_primary border border-[#edf1f6]"
+        defaultValue="" // Set the default value here instead of using 'selected' on option
         {...register(name)}
       >
-        <option disabled value="" selected>
+        <option disabled value="">
           {defaultOpt}
         </option>
 

@@ -27,3 +27,14 @@ export const buyDataFormSchema = z.object({
   amount: z.number().positive("Amount must be a positive number"),
   phoneNo: z.string().min(10, "Phone number must be at least 10 digits"),
 });
+
+export const airtimeFormSchema = z.object({
+  network: z.string().min(1, "Network is required"),
+  airtimeType: z.enum(["VTU", "Share and Sell"], {
+    required_error: "Airtime type is required",
+  }),
+  phoneNo: z.string().min(10, "Phone number must be at least 10 digits"),
+  amount: z.number().positive("Amount must be a positive number"),
+  // bypassNumberValidator: z.boolean().optional(),
+  amountToPay: z.number().positive("Amount to pay must be a positive number"),
+});

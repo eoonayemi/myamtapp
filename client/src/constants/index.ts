@@ -277,16 +277,16 @@ export const ninSlips = [
 export const dataTypes = [
   {
     name: "anwardataco",
-    MTN: ["SME", "SME 2", "GIFTING", "CORPORATE GIFTING", "DATA COUPONS"],
-    GLO: ["GIFTING", "CORPORATE GIFTING"],
-    AIRTEL: ["CORPORATE GIFTING"],
+    MTN: ["SME", "GIFTING"],
+    GLO: ["SME", "CORPORATE GIFTING"],
+    AIRTEL: ["SME", "CORPORATE GIFTING"],
     "9MOBILE": ["GIFTING", "CORPORATE GIFTING"],
   },
   {
     name: "alrahuzdata",
     MTN: [
       "SME",
-      "SME 2",
+      "SME2",
       "GIFTING",
       "CORPORATE GIFTING",
       "DATA COUPONS",
@@ -298,10 +298,17 @@ export const dataTypes = [
   },
   {
     name: "dataplus",
-    MTN: ["SME", "SME 2", "GIFTING", "CORPORATE GIFTING", "AWOOF DATA"],
-    GLO: ["GIFTING", "CORPORATE GIFTING", "AWOOF DATA"],
-    AIRTEL: ["CORPORATE GIFTING", "AWOOF DATA"],
+    MTN: ["SME", "CORPORATE GIFTING"],
+    GLO: ["CORPORATE GIFTING", "AWOOF DATA"],
+    AIRTEL: ["SME", "SME2", "CORPORATE GIFTING", "AWOOF DATA"],
     "9MOBILE": ["CORPORATE GIFTING"],
+  },
+  {
+    name: "ameentaccetelecom",
+    MTN: ["SME", "SME2", "GIFTING", "DIRECT-COUPON"],
+    GLO: ["CORPORATE-GIFTING"],
+    AIRTEL: ["CORPORATE-GIFTING"],
+    "9MOBILE": ["CORPORATE-GIFTING"],
   },
 ];
 

@@ -3,10 +3,11 @@ import {
   queryDataPlans,
   buyData as purchaseData,
 } from "../services/dataService";
+import CustomError from "../classes";
 
 export const fetchDataPlans = async (req: Request, res: Response) => {
   try {
-    const data = await queryDataPlans("anwardataco");
+    const data = await queryDataPlans("ameentaccetelecom");
     res.status(200).json(data);
   } catch (error) {
     if (error instanceof CustomError) {
