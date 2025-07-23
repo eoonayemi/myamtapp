@@ -55,8 +55,9 @@ model DataPlan {
 
 model CablePlan {
   id           Int           @id @default(autoincrement())
-  planId       Int
-  planName     String
+  planId     Int
+  decoder     String
+  name     String
   amount       Int
   providerId   Int
   transactions Transaction[]

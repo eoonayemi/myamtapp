@@ -7,29 +7,25 @@ const prisma = new PrismaClient();
 
 async function main() {
   // Create providers
-  const anwardataco = await prisma.provider.upsert({
+  const anwardataco = await prisma.provider.findUnique({
     where: { name: "anwardataco" },
-    create: { name: "anwardataco" },
-    update: {},
   });
 
-  const alrahuzdata = await prisma.provider.upsert({
+  const alrahuzdata = await prisma.provider.findUnique({
     where: { name: "alrahuzdata" },
-    create: { name: "alrahuzdata" },
-    update: {},
   });
 
-  const dataplus = await prisma.provider.upsert({
+  const dataplus = await prisma.provider.findUnique({
     where: { name: "dataplus" },
-    create: { name: "dataplus" },
-    update: {},
   });
 
-  const ameentaccetelecom = await prisma.provider.upsert({
+  const ameentaccetelecom = await prisma.provider.findUnique({
     where: { name: "ameentaccetelecom" },
-    create: { name: "ameentaccetelecom" },
-    update: {},
   });
+
+  if (!anwardataco || !alrahuzdata || !dataplus || !ameentaccetelecom) {
+    throw new Error("One or more providers not found");
+  }
 
   // Add data plans for anwardataco
   await prisma.dataPlan.createMany({
@@ -1089,7 +1085,7 @@ async function main() {
         dataId: 531,
         network: "AIRTEL",
         planType: "GIFTING",
-        amount: 900000000,
+        amount: 900,
         size: "5.0 GB",
         validity: "2DAYS VALIDITY",
       },
@@ -1097,7 +1093,7 @@ async function main() {
         dataId: 532,
         network: "AIRTEL",
         planType: "SME",
-        amount: 900000000,
+        amount: 900,
         size: "5.0 GB",
         validity: "2DAYS VALIDITY",
       },
@@ -1105,7 +1101,7 @@ async function main() {
         dataId: 533,
         network: "AIRTEL",
         planType: "GIFTING",
-        amount: 2500000000,
+        amount: 2500,
         size: "9.0 GB",
         validity: "7DAYS VALIDITY",
       },
@@ -1113,7 +1109,7 @@ async function main() {
         dataId: 534,
         network: "AIRTEL",
         planType: "SME",
-        amount: 25000000,
+        amount: 2500,
         size: "9.0 GB",
         validity: "7DAYS VALIDITY",
       },
@@ -1568,7 +1564,7 @@ async function main() {
         dataId: 412,
         network: "MTN",
         planType: "GIFTING",
-        amount: 590000000,
+        amount: 590,
         size: "1.5 GB",
         validity: "2DAY VALIDITY",
       },
@@ -1632,7 +1628,7 @@ async function main() {
         dataId: 430,
         network: "MTN",
         planType: "DATA COUPONS",
-        amount: 5900000,
+        amount: 590,
         size: "1.5 GB",
         validity: "2DAY VALIDITY",
       },
@@ -1920,7 +1916,7 @@ async function main() {
         dataId: 497,
         network: "MTN",
         planType: "CORPORATE GIFTING",
-        amount: 400000000,
+        amount: 400,
         size: "500.0 MB",
         validity: "(500MB) 7 days (C.G)",
       },
@@ -1928,7 +1924,7 @@ async function main() {
         dataId: 498,
         network: "MTN",
         planType: "CORPORATE GIFTING",
-        amount: 680000000,
+        amount: 680,
         size: "1.0 GB",
         validity: "MONTHLY (C.G)",
       },
@@ -1936,7 +1932,7 @@ async function main() {
         dataId: 500,
         network: "MTN",
         planType: "SME",
-        amount: 40000000,
+        amount: 400,
         size: "0.5 GB",
         validity: "(500MB) 7DAYS VALIDITY",
       },
@@ -1944,7 +1940,7 @@ async function main() {
         dataId: 501,
         network: "MTN",
         planType: "SME",
-        amount: 680000000,
+        amount: 680,
         size: "1000.0 MB",
         validity: "=1GB 30days VALIDITY",
       },
@@ -2064,7 +2060,7 @@ async function main() {
         dataId: 562,
         network: "MTN",
         planType: "SME2",
-        amount: 68000000,
+        amount: 680,
         size: "1000.0 MB",
         validity: "30days VALIDITY(1GB)",
       },
@@ -2072,7 +2068,7 @@ async function main() {
         dataId: 566,
         network: "MTN",
         planType: "DATA SHARE",
-        amount: 40000000,
+        amount: 400,
         size: "0.5 GB",
         validity: "7DAYS VALIDITY",
       },
@@ -2080,7 +2076,7 @@ async function main() {
         dataId: 567,
         network: "MTN",
         planType: "DATA SHARE",
-        amount: 6800000000,
+        amount: 680,
         size: "1000.0 MB",
         validity: "=(1gb) 30Days VALIDITY",
       },
@@ -2136,7 +2132,7 @@ async function main() {
         dataId: 574,
         network: "MTN",
         planType: "DATA COUPONS",
-        amount: 680000000,
+        amount: 680,
         size: "1000.0 MB",
         validity: "(1GB)30DAYS VALIDITY",
       },
@@ -2144,7 +2140,7 @@ async function main() {
         dataId: 575,
         network: "MTN",
         planType: "GIFTING",
-        amount: 680000000,
+        amount: 680,
         size: "1000.0 MB",
         validity: "(1GB) 30DAYS",
       },

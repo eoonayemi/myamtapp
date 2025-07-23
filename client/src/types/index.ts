@@ -2,7 +2,12 @@ import { z } from "zod";
 import {
   airtimeFormSchema,
   buyDataFormSchema,
+  BVNVerifyFormSchema,
+  cableSubFormSchema,
+  electricityBillFormSchema,
   loginFormSchema,
+  ninVerifyFormSchema,
+  ninVerifyWithPhoneFormSchema,
   registerFormSchema,
 } from "../schemas";
 
@@ -14,6 +19,16 @@ export type LoginFormData = z.infer<typeof loginFormSchema>;
 export type BuyDataFormData = z.infer<typeof buyDataFormSchema>;
 
 export type AirtimeFormData = z.infer<typeof airtimeFormSchema>;
+
+export type ElectricityBillFormData = z.infer<typeof electricityBillFormSchema>;
+
+export type CableSubFormData = z.infer<typeof cableSubFormSchema>;
+
+export type BVNVerifyFormData = z.infer<typeof BVNVerifyFormSchema>;
+
+export type NINVerifyFormData = z.infer<typeof ninVerifyFormSchema>;
+
+export type NINVerifyWithPhoneFormData = z.infer<typeof ninVerifyWithPhoneFormSchema>;
 
 //Context types
 export type AppContextType = {
@@ -64,3 +79,17 @@ export interface DataProvider {
   name: string;
   dataPlans: DataPlan[];
 }
+
+export interface CablePlan {
+  planId: number;
+  decoder: string;
+  name: string;
+  amount: number;
+}
+
+export interface CablePlanProvider {
+  id: number;
+  name: string;
+  cablePlans: CablePlan[];
+}
+

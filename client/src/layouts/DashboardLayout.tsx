@@ -46,7 +46,7 @@ const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
             className={`md:hidden`}
             onClick={() => setIsSideBarOPen((prev) => !prev)}
           >
-            <ArrowBack className="text-dark_primary text-2xl" />
+            <ArrowBack className="text-light_primary text-2xl" />
           </div>
         </div>
 

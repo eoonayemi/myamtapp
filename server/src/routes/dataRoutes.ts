@@ -5,6 +5,6 @@ import { verifyToken } from "../middlewares";
 const router = Router();
 
 router.get("/plans", fetchDataPlans);
-router.post("/buy", verifyToken, buyData)
+router.post("/buy", verifyToken, buyData);
 
 export default router;

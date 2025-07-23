@@ -1,8 +1,8 @@
 import { customFetch } from ".";
-import { AirtimeFormData } from "../types";
+import { BuyDataFormData } from "../types";
 import { toJSON } from "../utils";
 
-export const buyData = (formData: AirtimeFormData) =>
+export const buyData = (formData: BuyDataFormData) =>
   customFetch("data/buy", "POST", {
     headers: {
       "Content-Type": "application/json",

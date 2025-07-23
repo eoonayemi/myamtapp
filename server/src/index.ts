@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { authRouter, dataRouter } from "./routes";
+import { authRouter, cableSubscriptionRouter, dataRouter } from "./routes";
 
 dotenv.config();
 
@@ -22,6 +22,7 @@ app.use(
 //Routes
 app.use("/api/auth", authRouter);
 app.use("/api/data", dataRouter);
+app.use("/api/cable-subscription", cableSubscriptionRouter); // Assuming cable routes are handled by the same router as data
 // app.use("/api/user", userRouter);
 
 //Server Test

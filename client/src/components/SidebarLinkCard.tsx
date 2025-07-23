@@ -39,7 +39,7 @@ const SidebarLinkCard = ({
           !childLinks ? "cursor-pointer" : "cursor-default"
         } h-[50px] ml-5 rounded-s-full pl-7 pr-16 relative ${
           isActive || pathname.includes(path)
-            ? "bg-light_primary"
+            ? "bg-[#005ddd]"
             : childIsOpen && !pathname.includes(path)
             ? "bg-slate-50"
             : "bg-transparent"

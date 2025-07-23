@@ -274,6 +274,12 @@ export const ninSlips = [
   },
 ];
 
+export const bvnSlipDetails = [
+  { id: 1, name: "basic", title: "Basic Details", price: 150 },
+
+  { id: 2, name: "advanced", title: "Advanced Details", price: 150 },
+];
+
 export const dataTypes = [
   {
     name: "anwardataco",

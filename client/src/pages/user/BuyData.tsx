@@ -82,7 +82,7 @@ const BuyData = () => {
     .flat();
 
   const onSubmit = handleSubmit((data: BuyDataFormData) => {
-    return console.log(data);
+    // return console.log(data);
     mutate(data, {
       onSuccess: () => {
         showToast("Data purchased successful", "success");
@@ -133,6 +133,7 @@ const BuyData = () => {
             defaultOpt="Choose Data Type"
             name="dataType"
             register={register}
+            dv={watch("network") || "not set"}
           />
           <SelectInput
             label="Plan*"
@@ -151,7 +152,7 @@ const BuyData = () => {
           <FieldInput
             placeholder="500"
             type="number"
-            boxStyles="bg-white border-[#edf1f6]"
+            boxStyles="bg-[#edf1f6] hover:border-none"
             label="Amount (N)*"
             value={amount || ""}
             disabled

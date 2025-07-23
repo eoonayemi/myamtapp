@@ -2,6 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "main": "./src/index.ts",
+  "prisma": {
+    "seed": "npx tsx prisma/seeds/providers.ts && npx tsx prisma/seeds/index.ts"
+  },
   "scripts": {
     "dev": "nodemon",
     "build": "npx tsc",

@@ -22,7 +22,7 @@ export const loginFormSchema = z.object({
 
 export const buyDataFormSchema = z.object({
   network: z.string().min(1, "Network is required"),
-  dataId: z.string().min(1, "Data plan is required"),
+  dataId: z.string().min(1, "Select a data plan"),
   dataType: z.string().min(1, "Data type is required"),
   amount: z.number().positive("Amount must be a positive number"),
   phoneNo: z.string().min(10, "Phone number must be at least 10 digits"),
@@ -37,4 +37,41 @@ export const airtimeFormSchema = z.object({
   amount: z.number().positive("Amount must be a positive number"),
   // bypassNumberValidator: z.boolean().optional(),
   amountToPay: z.number().positive("Amount to pay must be a positive number"),
+});
+
+export const electricityBillFormSchema = z.object({
+  discoName: z.string().min(1, "Disco name is required"),
+  meterNumber: z.string().min(1, "Meter number is required"),
+  meterType: z.string().min(1, "Meter type is required"),
+  amount: z.number().positive("Amount must be a positive number"),
+  customerPhone: z
+    .string()
+    .min(10, "Customer phone must be at least 10 digits"),
+});
+
+export const cableSubFormSchema = z.object({
+  cableName: z.string().min(1, "Cable name is required"),
+  amount: z.number().positive("Amount must be a positive number"),
+  smartCardNumber: z
+    .string()
+    .min(1, "Smart Card number / IUC number is required"),
+  planId: z.string().min(1, "Select a cable plan"),
+});
+
+export const BVNVerifyFormSchema = z.object({
+  slipType: z.string().min(1, "Slip type is required"),
+  amount: z.number().positive("Amount must be a positive number"),
+  bvnNumber: z.string().min(1, "BVN number is required"),
+});
+
+export const ninVerifyFormSchema = z.object({
+  slipType: z.string().min(1, "Slip type is required"),
+  amount: z.number().positive("Amount must be a positive number"),
+  ninNumber: z.string().min(1, "NIN number is required"),
+});
+
+export const ninVerifyWithPhoneFormSchema = z.object({
+  slipType: z.string().min(1, "Slip type is required"),
+  amount: z.number().positive("Amount must be a positive number"),
+  phoneNumber: z.string().min(10, "Phone number must be at least 10 digits"),
 });

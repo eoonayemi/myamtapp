@@ -8,7 +8,7 @@ import { airtimeFormSchema } from "../../schemas";
 import { useAppContext } from "../../contexts/AppContext";
 import { buyAirtime } from "../../api/airtime";
 
-const BuyData = () => {
+const BuyAirtime = () => {
   const {
     register,
     setValue,
@@ -108,8 +108,8 @@ const BuyData = () => {
           <FieldInput
             placeholder="500"
             type="number"
-            boxStyles="bg-white border-[#edf1f6]"
-            label="Amount to Pay (N)*"
+            boxStyles="bg-[#edf1f6] hover:border-none"
+            label="Amount to Pay (N)"
             value={watch("amount") && Number(watch("amount")) + 50}
             disabled
           />
@@ -129,4 +129,4 @@ const BuyData = () => {
   );
 };
 
-export default BuyData;
+export default BuyAirtime;
